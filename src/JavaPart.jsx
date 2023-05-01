@@ -15,7 +15,7 @@ function JavaPart(){
   
   // const {list,setList}=useContext(listContext);
   console.log("list me ye h",list );
-const newList=Object.values(list);
+const newList=list;
 const length=newList.length;
 console.log("length check",length );
   

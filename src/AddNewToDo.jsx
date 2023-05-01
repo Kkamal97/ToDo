@@ -11,9 +11,10 @@ const {list,setList}=useContext(listContext);
 
 
 function saveLocal(){ 
-    newList.push(input);
-    setList(newList);
-  const tt=JSON.stringify(newList);
+    const aglilist=[...newList];
+    aglilist.push(input);
+    setList(aglilist);
+  const tt=JSON.stringify(aglilist);
   localStorage.setItem("chacha",tt);
     
 }
