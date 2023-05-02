@@ -9,34 +9,34 @@ function JavaPart(){
   const [newInput,setNewInput]=useState(false);
   
   const item=localStorage.getItem("chacha");
-  console.log("dekho to kya ara",item );
-  const nyilist=JSON.parse(item)
+
+  let nyilist=[];
+  if(item){
+   nyilist=JSON.parse(item);
+  }
+  
+console.log("tera",nyilist );
+  
   const [list,setList]=useState(nyilist);
-  
-  // const {list,setList}=useContext(listContext);
-  console.log("list me ye h",list );
+  console.log("kya hua tera",list );
+
 const newList=list;
-const length=newList.length;
-console.log("length check",length );
-  
-  // newList.push();
-// console.log("ye rhi array",array)
 
 
 
 function newToDo(){
   setNewInput(true)
-// console.log("check check mike");
+
 }
 
   return (<>
  <listContext.Provider value={{list,setList}}>
-    <ThingsToDo newList={newList}/>
+    {item && <ThingsToDo newList={newList}/>}
     <br></br>
     {newInput || <Button onClick={newToDo} className="rounded-2xl">+ Add a todo</Button>}
     {newInput &&  <AddNewToDo newInput={newInput} setNewInput={setNewInput} newList={newList}/> }
     <br></br>
-    <ThingsCompleted />
+    {/* <ThingsCompleted /> */}
     </listContext.Provider>
   </>
     
